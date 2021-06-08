@@ -241,11 +241,12 @@
 					</div>
 				</div>
 				<br clear="all" />
-				<p style="font-size: small; text-align: center;">
-					Ulkoasu © <a href="http://raitatossu.net/pilvimarja" target="_blank">Pilvimarja 2013</a> / Heidi
-				</p>
+
 
 			</div>
+			<p style="font-size: small; text-align: center;">
+				Ulkoasu © <a href="http://raitatossu.net/pilvimarja" target="_blank">Pilvimarja 2013</a> / Heidi
+			</p>
 			<!-- Footer -->
 			<footer id="footer">
 				<section>Ulkoasu &copy; <a class="ala" href="http://patterncooler.com">PatternCooler</a>, <a class="ala" href="http://fonts.google.com">Google Fonts</a>, <a
