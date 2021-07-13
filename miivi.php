@@ -12,10 +12,10 @@
     }
 ?>
 
-<!-- tämä <table> ja </table> -tagien väliin: -->
+<!-- tämä table ja /table -tagien väliin: -->
 <?php 
 	if($hevonen['error'] == 1){
-		// jos hevosen haku ei onnistunut, tulosta virhe
+    // jos hevosen haku ei onnistunut, tulosta virhe
 		echo $hevonen['error_message'];
     
 	} else {
@@ -67,7 +67,6 @@
 					// jos solu oli äsken 1, seuraavaksi se on 2
 					$solu = 2;
 			    }
-				
     	    }
         }
     }
