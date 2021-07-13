@@ -12,7 +12,7 @@
     }
 ?>
 
-<!-- tämä table ja /table -tagien väliin: -->
+<!-- tämä <table> ja </table> -tagien väliin: -->
 <?php 
 	if($hevonen['error'] == 1){
 		// jos hevosen haku ei onnistunut, tulosta virhe
