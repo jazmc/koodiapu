@@ -29,13 +29,14 @@
         $ominaisuusnimi = $info['ominaisuudet'][$id];
         $ominaisuuspisteet = $ominaisuus ['pisteet'];
         
-        //Tulostus
+        // jos ominaisuudella on yli 0 pistettä, lisää se tulostettavaksi
         if ($ominaisuuspisteet != "0"){
             $ominaisuustaulukko += array($ominaisuusnimi => $ominaisuuspisteet);
         }
     }
     arsort($ominaisuustaulukko);
     foreach($ominaisuustaulukko as $key => $value) {
+	    // ominaisuuspisteiden tulostus
             echo "&#187; <i>" . $key . "</i> " . $value . " p.<br>";
     }
 ?>
