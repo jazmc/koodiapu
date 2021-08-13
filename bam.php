@@ -5,6 +5,7 @@
     $vh = 'VH19-053-0048';
 
     //Muokkaa tähän hevosen PORRASTETTUJEN painotuslajit ja niiden tasot muodossa "JAOS" => "TASO", "JAOS" => "TASO"
+	// tasojen ei tarvi olla oikeita, voit laittaa esim "KRJ" => "blaablaablaa" kunhan siinä vaan on jotain tekstiä
     // huomaa että ei pilkkua viimeisen jaos-tason jälkeen
     $osaaminen = array("KRJ" => "He B", "KERJ" => "CIC1");
 
