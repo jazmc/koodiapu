@@ -4,9 +4,8 @@
     //Muokkaa tähän hevosesi VH-tunnus
     $vh = 'VH19-053-0048';
 
-    //Muokkaa tähän hevosen painotuslajit ja niiden tasot muodossa "JAOS" => "TASO"
-    // huomaa että ei pilkkua viimeisen jaos-tason jälkeen
-    $osaaminen = array("KRJ" => "He B");
+    //Muokkaa tähän hevosen painotuslajit
+    $osaaminen = array("KRJ", "ERJ");
 
     // ei tarvittavia muokkauksia paitsi jos tulee joku uusi laji, laitoin nämä neljä esimerkiksi
     $taivutus = array("VVJ" => "Valjakkoajossa", "KRJ" => "Kouluratsastuksessa", "ERJ" => "Esteratsastuksessa", "KERJ" => "Kenttäratsastuksessa");
@@ -48,7 +47,7 @@
             }
 			
             //Tulostus, jos jaos kuuluu hevosen osaamiseen
-			if (array_key_exists($jaoslyhenne, $osaaminen)) {
+			if (in_array($jaoslyhenne, $osaaminen)) {
                 echo "<h4>" . $taivutus[$jaoslyhenne] . " " . $summa . " op. ";
                 echo "(vaikeustasolla " . $taso . "/" . $max_taso_rajoitus . ")</h4>";
 			}
