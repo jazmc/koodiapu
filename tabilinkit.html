@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- jquery-kirjasto --> 
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        
+        <!-- css-koodi, tälleen head-osioon tai sitten ulkoiseen tiedostoon (ilman <style> & </style> tageja) --> 
+        <style>
+            .piilodiv:not(.auki) {
+                display:none; 
+            }
+            
+            .tabilinkit {
+                display:flex;
+                gap: 1em; /* voit vaihtaa */ 
+                justify-content: center; /* center tai space-between varmaan toimii parhaiten näille, kokeile kumpi kivempi */ 
+            }
+            
+            .tabilinkit > a {
+                padding: .2em /* <-- ylä/ala */ 1em /* <-- vasen/oikee */; /* voit vaihtaa */ 
+                text-align: center;
+                background-color:hotpink; /* voit vaihtaa */ 
+            }
+            
+            .tabilinkit > a:hover, .tabilinkit > .auki {
+                background-color:limegreen; /* voit vaihtaa */ 
+            }
+            
+            .sisallot {
+                margin: 1em 0; /* voit vaihtaa (spoilerisisältöjen välistys) */ 
+            }
+   
+        </style>
+        <!-- css-koodi loppui --> 
+        
+    </head>
+    <body>
+    
+    <!-- tabilinkit -->    
+    <div class="tabilinkit">
+        <a class="trigger auki" rel="luonne">Luonne</a>
+        <a class="trigger" rel="sukari">Sukuselvitys</a>
+        <a class="trigger" rel="päiväkirja">Päiväkirja</a>
+        <a class="trigger" rel="nönnönnöö">Nönnönnöö</a>
+    </div>
+    <!-- tabilinkit päättyy --> 
+    
+    <!-- spoilerisisällöt alkaa -->
+    <div class="sisallot">
+        
+        <div class="piilodiv auki" id="luonne">Luonne lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis lacinia diam. Curabitur tincidunt nibh leo. Mauris eget massa augue. Sed non venenatis arcu. Duis aliquam non erat vel congue. Phasellus fringilla sagittis nisi in imperdiet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</div>
+        
+        <div class="piilodiv" id="sukari">Sukari ut quis lacinia augue. Pellentesque eget diam odio. Etiam quis tincidunt lorem. Vestibulum viverra ipsum ac rhoncus aliquet. Maecenas in porttitor nunc, at blandit ex. In lobortis urna sed velit faucibus dapibus. Sed porttitor tempor arcu, in semper orci facilisis sed. Nam eget egestas felis, non maximus ipsum. Aliquam erat volutpat. Fusce justo sapien, blandit vitae turpis vitae, pulvinar eleifend ligula. Phasellus cursus lorem massa, non vestibulum lacus consequat vitae.</div>
+        
+        <div class="piilodiv" id="päiväkirja">Päikky donec cursus tincidunt est. Praesent nec malesuada nunc. Ut sed orci ipsum. Nulla commodo sem id dui lobortis, non faucibus lectus varius. Mauris consequat pulvinar ultrices. Praesent eleifend elementum neque, quis facilisis erat porttitor a. Vivamus gravida, nunc non pretium varius, lorem mauris dignissim diam, et pharetra risus velit eu dui. Integer volutpat pharetra venenatis. Maecenas eget ornare odio. Pellentesque hendrerit diam sit amet tortor elementum tincidunt. Maecenas scelerisque magna id interdum convallis. Suspendisse et bibendum ipsum. Sed nulla ex, condimentum rhoncus nisi id, mollis blandit dolor. Nunc porttitor mauris sagittis aliquet volutpat. Nulla tincidunt tristique felis, non luctus ex lobortis eu.</div>
+        
+        <div class="piilodiv" id="nönnönnöö">Nönnönnöö morbi at ligula arcu. Morbi malesuada, risus sit amet tempor semper, eros nibh congue velit, nec finibus tellus nibh non odio. Pellentesque feugiat mauris eu lobortis ultrices. Pellentesque a augue sit amet felis vestibulum euismod. Nulla sed turpis vel nisl commodo commodo. Fusce ex augue, ullamcorper et neque ut, posuere aliquam sem. Nam ut quam pharetra, semper diam non, finibus sapien. Sed feugiat pharetra purus quis sodales. Duis mattis elementum leo, quis cursus neque congue in. Curabitur pellentesque elit at turpis pellentesque, ac posuere leo consectetur. Maecenas blandit pharetra justo, eget pulvinar libero pulvinar quis. Cras placerat efficitur ligula et sagittis. Aenean malesuada tortor quis velit accumsan rhoncus. Praesent justo nisl, dapibus sed orci quis, sodales molestie nulla. Quisque scelerisque dui at vulputate accumsan.</div>
+        
+    </div> <!-- spoilerisisällöt päättyy -->
+        
+        <script>
+            $('.tabilinkit .trigger').on('click', function (e){
+                if($(this).hasClass('auki')) {
+                    return;
+                }
+                
+                var target = $(this).attr('rel');
+        
+                // Seuraava rivi; togglen määritys:
+                // .slideToggle('300'); = liukuu esiin, kestää 0,3 sekuntia
+                // .fadeToggle('300'); = häivyttyy esiin, kestää 0,3 sekuntia
+                // .toggle(); = ilmestyy esiin, ei animaatioita
+        
+                $("#"+target).fadeToggle('300'); // tätä riviä voi muokata yllä olevien ohjeiden mukaan miten tykkää
+        
+                $('.piilodiv').not("#"+target).hide(); //poista tämä rivi jos et halua että vain yksi spoileri voi olla kerrallaan auki!
+                
+                $(this).addClass('auki');
+                $('.tabilinkit .trigger').not($(this)).removeClass('auki');
+            });
+        </script>
+    </body>
+</html>
